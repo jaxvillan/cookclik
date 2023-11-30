@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s ease; /* Add transition effect */
+        }
+
+        #cookie {
+            font-size: 150px;
+            margin-top: 50px;
+            cursor: pointer;
+        }
+
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        /* Additional styling for a nice visual effect */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        #cookie:hover {
+            animation: pulse 0.5s infinite;
+        }
+    </style>
+    <title>Cookie Clicker</title>
+</head>
+<body>
+    <h1>Cookie Clicker</h1>
+    <div id="cookie" onclick="clickCookie()">🍪</div>
+    <p id="score">Cookies: <span id="cookieCount">0</span></p>
+
+    <script>
+        let cookies = 0;
+
+        function clickCookie() {
+            cookies++;
+            document.getElementById('cookieCount').textContent = cookies;
+
+            // Change background color on each click
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            document.body.style.backgroundColor = randomColor;
+        }
+    </script>
+</body>
+</html>
